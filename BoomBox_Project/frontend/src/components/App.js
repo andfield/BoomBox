@@ -1,17 +1,19 @@
-import React, {Component} from 'react';
-import {render} from 'react-dom'
+import React from 'react'
+import RoomJoining from './RoomJoiningPage'
+import CreateRoom from './CreateRoomPage'
+import HomePage from './HomePage'
 
-export default class App extends Component{
+import {BrowserRouter as Router, Switch, Route, Link, Redirect} from 'react-router-dom'
 
-    constructor(props){
-        super(props);
-        
-    }
-
-    render() {
-        return(<h1>Hello World from React.</h1>)
-    }
+const App = () => {
+    return(
+        <Router>
+            <Switch>
+                <Route exact path="/" component={HomePage} />
+                <Route path="/join" component={RoomJoining} />
+                <Route path="/create" component={CreateRoom} />
+            </Switch>
+        </Router>
+    )
 }
-
-const appDiv = document.getElementById("app")
-render(<App />, appDiv)
+export default App
