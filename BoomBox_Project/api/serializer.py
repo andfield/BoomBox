@@ -1,4 +1,4 @@
-#get the model and translate the python code to json fro frontend.
+#get the model and translate the python code to json for frontend.
 
 from rest_framework import serializers
 from .models import Room
