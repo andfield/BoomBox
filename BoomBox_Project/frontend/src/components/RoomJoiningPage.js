@@ -18,17 +18,20 @@ const RoomJoining=(props) => {
             })
         }
 
-        fetch('/api/join-room', requestOptions).
-            then((response) => {
-                if (response.ok) {
+        fetch('/api/join-room', requestOptions)
+
+            .then((response) => {
+                if (response.ok!=true) {
+                    changeError('Room Not Found.')
+                }
+                else {
+
                     console.log(roomCode)
                     props.history.push('/room/'+roomCode)
                 }
-                else {
-                    changeError({error: 'Room Not Found.'})
-                }
-            }).catch((error) => {
-                console.log(error)
+            })
+            .catch(err => {
+                console.log(err)
             })
     }
 
